@@ -14,7 +14,7 @@ namespace DataAccess.Entities
         public int SalaryMin { get; set; }
         public int SalaryMax { get; set; }
         public string LSocation { get; set; }
-
+        public string ?ImageUrl { get; set; }
         public int CompanyId { get; set; }
         public Company Company { get; set; }
 

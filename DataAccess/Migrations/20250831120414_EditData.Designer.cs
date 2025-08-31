@@ -3,6 +3,7 @@ using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(Job_Board))]
-    partial class Job_BoardModelSnapshot : ModelSnapshot
+    [Migration("20250831120414_EditData")]
+    partial class EditData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,9 +81,6 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("LSocation")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -107,7 +107,6 @@ namespace DataAccess.Migrations
                             Id = 1,
                             CompanyId = 1,
                             Description = "We are looking for a skilled Software Developer to join our dynamic team. You will be responsible for designing, coding, and maintaining web applications using modern technologies. The ideal candidate should have experience with C#, ASP.NET Core, and SQL databases, as well as a strong understanding of software design principles. You will work closely with product managers and designers to deliver high-quality features.",
-                            ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7vsQ87hL64dYCv53oQN7McuPipgKNw_5Z6A&s",
                             LSocation = "Kyiv",
                             SalaryMax = 4000,
                             SalaryMin = 2000,
@@ -118,7 +117,6 @@ namespace DataAccess.Migrations
                             Id = 2,
                             CompanyId = 1,
                             Description = "Join our QA team to ensure the highest quality of our software solutions. As a QA Engineer, you will create and execute test cases, identify and document bugs, and collaborate with developers to resolve issues. Experience in manual testing is required, and knowledge of automated testing tools (Selenium, Postman) is a plus. Strong attention to detail and analytical skills are essential.",
-                            ImageUrl = "https://inproject.org/wp-content/uploads/2023/02/divchuna-qa-1024x683.jpg",
                             LSocation = "Lviv",
                             SalaryMax = 3000,
                             SalaryMin = 1500,
@@ -129,7 +127,6 @@ namespace DataAccess.Migrations
                             Id = 3,
                             CompanyId = 2,
                             Description = "We are seeking a talented UI/UX Designer to create intuitive and visually appealing interfaces for our web and mobile applications. Your role will include user research, wireframing, prototyping, and collaborating with developers to implement your designs. The ideal candidate should have experience with Figma, Adobe XD, or similar tools, and a good understanding of user-centered design principles.",
-                            ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROSsJYCBw-B3S44zjkaA9otdPX8o5GO2QyEQ&s",
                             LSocation = "Remote",
                             SalaryMax = 3500,
                             SalaryMin = 1800,

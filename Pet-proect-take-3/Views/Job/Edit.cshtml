@@ -1,0 +1,39 @@
+﻿@model DataAccess.Entities.Job;
+
+<h1>Edit Vacancy</h1>
+<form asp-action="Edit" method="post" class="row g-3">
+	<div class="col-md-6">
+		<label asp-for="Title" class="form-label">Title</label>
+		<input asp-for="Title" type="text" class="form-control" />
+	</div>
+	<div class="col-md-6">
+		<label asp-for="SalaryMin" class="form-label">Minimal Salary</label>
+		<input asp-for="SalaryMin" type="number" class="form-control" />
+	</div>
+	<div class="col-md-6">
+		<label asp-for="SalaryMax" class="form-label">Maximal Salary</label>
+		<input asp-for="SalaryMax" type="number" class="form-control" />
+	</div>
+	<div class="col-md-6">
+		<label asp-for="Description" class="form-label"></label>
+		<input asp-for="Description" type="text" class="form-control" placeholder="Enter description" />
+	</div>
+	<div class="col-md-6">
+		<label asp-for="LSocation" class="form-label">Location</label>
+		<input asp-for="LSocation" type="text" class="form-control" />
+	</div>
+	<div class="col-md-6">
+		<label asp-for="ImageUrl" class="form-label">Image Url</label>
+		<input asp-for="ImageUrl" type="url" class="form-control" />
+	</div>
+	<div class="col-md-6">
+		<label asp-for="CompanyId" class="form-label">Company</label>
+		<select asp-for="CompanyId" asp-items="@ViewBag.CompanyList" class="form-select"></select>
+	</div>
+	<div class="d-flex gap-2">
+		<button type="submit" class="btn btn-success">Edit</button>
+	</div>
+	<div class="col-6">
+		<a asp-action="Index" class="btn btn-danger">Back</a>
+	</div>
+</form>

@@ -1,0 +1,43 @@
+﻿@model List<DataAccess.Entities.Job>
+
+<h1 class="text-center mb-4">Vacancy List</h1>
+
+@if (Model != null && Model.Any())
+{
+    <p class="text-muted text-center">Found <strong>@Model.Count</strong> vacancies</p>
+}
+else
+{
+    <p class="text-center text-danger">No vacancies found.</p>
+}
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    @foreach (var vacancy in Model)
+    {
+        <div class="col">
+            <div class="card shadow-sm h-100 border-0 rounded-3" style="transition: transform .2s; cursor: pointer;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="vacancy-image">
+                    <img src="@vacancy.ImageUrl" alt="Vacancy photo" class="vacancy-photo" />
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title text-primary">@vacancy.Title</h5>
+                    <p class="card-text mb-2 text-muted">@vacancy.Description</p>
+
+                    <ul class="list-unstyled mb-3">
+                        <li><i class="bi bi-geo-alt"></i> <strong>@vacancy.LSocation</strong></li>
+                        <li><i class="bi bi-cash"></i> @vacancy.SalaryMin$ - @vacancy.SalaryMax$</li>
+                    </ul>
+                    <div class="mt-auto d-flex gap-2">
+                        <a asp-action="Details" asp-route-id="@vacancy.Id" class="btn btn-success flex-grow-1">Apply Now</a>
+                        <a asp-action="Edit" asp-route-id="@vacancy.Id" class="btn btn-primary flex-grow-1">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@vacancy.Id" class="btn btn-danger flex-grow-1">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="text-center mt-4">
+    <a asp-action="Create" type="button" class="btn btn-primary">Create New Vacancy</a>
+</div>
