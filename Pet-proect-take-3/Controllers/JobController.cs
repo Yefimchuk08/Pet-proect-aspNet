@@ -2,6 +2,7 @@
 using DataAccess.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Pet_proect_take_3.Controllers
 {
@@ -24,6 +25,12 @@ namespace Pet_proect_take_3.Controllers
         [HttpPost]
         public IActionResult Create(Job job)
         {
+            if (!ModelState.IsValid)
+            {
+                LoadCompanies();
+                return View(job);
+            }
+
             context.Jobs.Add(job);
 
             context.SaveChanges();
@@ -41,6 +48,11 @@ namespace Pet_proect_take_3.Controllers
         [HttpPost]
         public IActionResult Edit(Job job)
         {
+            if (!ModelState.IsValid)
+            {
+                LoadCompanies();
+                return View(job);
+            }
             context.Jobs.Update(job);
             context.SaveChanges();
             return RedirectToAction(nameof(Index));
