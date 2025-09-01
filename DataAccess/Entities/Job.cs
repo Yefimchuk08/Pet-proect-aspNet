@@ -14,10 +14,11 @@ namespace DataAccess.Entities
         public string Title { get; set; }
         [Required(ErrorMessage ="This field REQUIRED"), MinLength(20, ErrorMessage = "Length must be more than 20 symbols")]
         public string Description { get; set; }
-        [Range(0, int.MaxValue, ErrorMessage = "Salary can not be < 0")]
+        [Required(ErrorMessage = "This field REQUIRED"), Range(0, int.MaxValue, ErrorMessage = "Salary can not be < 0")]
         public int SalaryMin { get; set; }
-        [Range(0, int.MaxValue, ErrorMessage = "Salary can not be < 0")]
+        [Required(ErrorMessage = "This field REQUIRED"), Range(0, int.MaxValue, ErrorMessage = "Salary can not be < 0")]
         public int SalaryMax { get; set; }
+        [Required(ErrorMessage = "This field REQUIRED"), MinLength(3, ErrorMessage = "Length must be more than 3 symbols")]
         public string LSocation { get; set; }
         [Url(ErrorMessage = "This field must started with 'http/https'")]
         public string ImageUrl { get; set; }
